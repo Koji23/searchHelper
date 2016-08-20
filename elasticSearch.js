@@ -58,6 +58,7 @@ function initMapping() {
               picreference: { type: "string" },
               category: { type: "string" },
               description: { type: "string" },
+
               suggest: {
                   type: "completion",
                   analyzer: "simple",
@@ -130,6 +131,15 @@ function getSearch(input){
   });
 }
 
+
 module.exports.getSearch = getSearch;
 
+function deleteDocument(input){
+  return elasticClient.delete({
+    index: indexName,
+    type: "listing",
+    id:'input'
+  });
+}
 
+module.exports.deleteDocument = deleteDocument;
