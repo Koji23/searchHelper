@@ -19,7 +19,7 @@ module.exports = function(app) {
     }
   });
   // create listing
-
+  //
   app.delete('/listings/:input', function(req, res, next){
     elastic.deleteDocument(req.params.input)
     .then(function(result){

@@ -20,7 +20,7 @@ elasticClient.ping({
   }
 });
 
-// Put Mapping
+// Put Mappings
 // Mapping for the Listing Index
 function initMapping() {  
   return elasticClient.indices.putMapping({
