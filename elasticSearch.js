@@ -37,7 +37,7 @@ function initMapping() {
         picReference: { type: "string" },
         category: { type: "string" },
         coordinates: {type: "geo_point"},
-        createdAt: {type: "date"},
+        createdat: {type: "date"},
       },
 
     }
