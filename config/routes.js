@@ -1,6 +1,16 @@
 var elastic = require('../elasticSearch');
 
 module.exports = function(app) {
+  // default route search all
+  app.get('/', function(req, res, next) {
+    elastic.matchAll({from: 0})
+    .then(result => {
+      res.json(result);
+    })
+    .catch( err => {
+      res.send(404);
+    });
+  });
   // search for a listing
   app.get('/listings', function(req, res, next){
     if (req.query.keywords === '' && req.query.category === 'all-categories' && req.query.coordinates === '0,0') {
